@@ -10,3 +10,4 @@ set(CMAKE_CXX_STANDARD 17)
 project(${PROJ})
 
 add_subdirectory("variadic_templates")
+add_subdirectory("recursive_templates")
