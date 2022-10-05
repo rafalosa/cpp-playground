@@ -11,3 +11,6 @@ project(${PROJ})
 
 add_subdirectory("variadic_templates")
 add_subdirectory("recursive_templates")
+add_subdirectory("pimpl idiom")
+# add_subdirectory("casting")
+# add_subdirectory("compile time stuff")
