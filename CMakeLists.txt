@@ -9,8 +9,11 @@ set(CMAKE_CXX_STANDARD 17)
 
 project(${PROJ})
 
+enable_testing()
+
 add_subdirectory("variadic_templates")
 add_subdirectory("recursive_templates")
 add_subdirectory("pimpl idiom")
+add_subdirectory("tests")
 # add_subdirectory("casting")
 # add_subdirectory("compile time stuff")
