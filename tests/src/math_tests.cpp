@@ -9,7 +9,7 @@ TEST(MultiplyTests, NonZeroFloatsTest){
 
     const auto result = math::multiply(4.3, 8.5);
 
-    ASSERT_EQ(expected, result);
+    ASSERT_DOUBLE_EQ(expected, result);
 }
 
 TEST(MultiplyTests, ZeroFloatsTest){
@@ -28,6 +28,15 @@ TEST(MultiplyTests, NonZeroAndZeroFloatsTest){
     const auto result = math::multiply(4.3, 0.0);
 
     ASSERT_EQ(expected, result);
+}
+
+TEST(MultiplyTests, DecimalIntegerTest){
+
+    const auto expected = 12.9;
+
+    const auto result = math::multiply(4.3, 3);
+
+    ASSERT_DOUBLE_EQ(expected, result);
 }
 
 int main(int argc, char** argv){
