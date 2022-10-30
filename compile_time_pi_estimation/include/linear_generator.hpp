@@ -34,6 +34,7 @@ consteval static int seed_gen(){
 }
 
 // Compile time pseudo random number generation.
+// https://en.wikipedia.org/wiki/Linear_congruential_generator
 class LinearCongruentialGenerator{
 
     private:
@@ -45,10 +46,10 @@ class LinearCongruentialGenerator{
     public:
 
     constexpr LinearCongruentialGenerator(int modulus = 0x7FFFFFFF, int multiplier = 48271, int increment=0): modulus(modulus), multiplier(multiplier), increment(increment){};
-    constexpr uint32_t rec_rng(int num) const{ return (increment + multiplier * ((num > 0) ? rec_rng(num - 1) : seed_gen())) & modulus; }
-    constexpr float random_float(int num) const{
+    constexpr uint32_t rec_rng(int num) const{ return (increment + multiplier * ((num > 0) ? rec_rng(num - 1) : seed_gen())) % modulus; }
+    constexpr float random_float(int num) const{ // [-1, 1]
         auto temp = rec_rng(num + 1);
-        return static_cast<float>(temp) / static_cast<float>(modulus) * 2.0 - 1.0;
+        return static_cast<float>(temp) / static_cast<float>(modulus - 1) * 2.0 - 1.0;
     }
     
 };

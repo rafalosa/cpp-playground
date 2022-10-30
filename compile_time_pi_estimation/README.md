@@ -1,0 +1,3 @@
+# Compile time PI estimation
+
+This a solution to a silly problem I came up with in order to work a little bit with compile time computations. As the title suggests the main task is to estimate the value of PI at compile time. This is a Monte Carlo method based solution with pseudo random number generation and custom seed generation at compile time. I tried to use as much of STL as possible, but I couldn't get some things to work, like `std::generate` for example. This actually turned out to be a fun challenge. The estimated value of PI is unique to the event of compilation, one binary will always return the same value of PI, even though this is a Monte Carlo based estimation.

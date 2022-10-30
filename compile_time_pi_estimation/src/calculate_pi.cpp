@@ -10,7 +10,7 @@ constexpr auto generator  = LinearCongruentialGenerator();
 
 // Points number is restricted due to the maximal depth of constant expression evaluation.
 // This can be modified with the -fconstexpr-steps flag.
-constexpr std::size_t points_num = 100000;
+constexpr std::size_t points_num = 1'000'00;
 
 //Rest
 struct Point{

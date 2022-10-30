@@ -3,10 +3,13 @@ file(GLOB_RECURSE SOURCES
 
 set(HEADERS include)
 
+
+
 add_executable(pi_compile_time ${SOURCES})
 target_include_directories(pi_compile_time PRIVATE ${HEADERS})
 set_target_properties(pi_compile_time PROPERTIES
   RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
   LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
 
-add_compile_options(pi_compile_time -fconstexpr-steps=100000)
+target_compile_options(pi_compile_time PRIVATE
+  -fconstexpr-depth=33554432)
